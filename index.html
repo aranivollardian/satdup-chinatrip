@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>China 2026/27: Beijing to Shanghai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EAF0EA; --card:#FBFBF7; --ink:#1D1B18; --soft:#57524A; --line:#D5DBD0;
+  --red:#A6261C; --gold:#B8892B; --jade:#2E6A58; --hero:#15181A; --wash:#F3F5EF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#131618;--card:#1D2124;--ink:#ECE7DC;--soft:#A7A194;--line:#31373A;--red:#D9493C;--gold:#D6AA4F;--jade:#6FB39C;--hero:#0B0D0E;--wash:#191D1F}
+}
+:root[data-theme="dark"]{--paper:#131618;--card:#1D2124;--ink:#ECE7DC;--soft:#A7A194;--line:#31373A;--red:#D9493C;--gold:#D6AA4F;--jade:#6FB39C;--hero:#0B0D0E;--wash:#191D1F}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--red);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:"Noto Serif SC","Songti SC",Georgia,serif;font-weight:700;line-height:1.2;margin:0}
+.brush{font-family:"Ma Shan Zheng","STKaiti","KaiTi",serif;font-weight:400}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+
+/* hero */
+.hero{background:var(--hero);color:#F2ECE0;position:relative;overflow:hidden}
+.hero .hills{display:block;width:100%;height:auto;max-height:340px;margin-top:-90px;position:relative;z-index:0}
+.hero .lanterns{position:absolute;top:0;right:10px;width:88px;height:auto;z-index:2}
+.hero .txt{position:relative;z-index:1;padding:28px 22px 0;max-width:760px;margin:0 auto}
+.hero .big{font-size:clamp(64px,19vw,120px);line-height:.9;color:#C8352A;letter-spacing:.02em}
+.hero h1{font-size:clamp(22px,5.4vw,32px);margin-top:10px;color:#F2ECE0}
+.hero p{margin:6px 0 0;color:#CFC7B8;max-width:30ch}
+.hero .tail{padding:14px 22px 22px;max-width:760px;margin:0 auto;color:#CFC7B8;font-size:14px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav a{flex:none;text-decoration:none;color:var(--ink);font-weight:500;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+
+section{padding:34px 0 8px}
+h2{font-size:24px;margin-bottom:6px}
+.lede{color:var(--soft);margin:0 0 18px;max-width:62ch}
+
+/* route */
+.route{list-style:none;margin:0;padding:0;display:flex;gap:0;overflow-x:auto;padding-bottom:6px}
+.route li{flex:none;width:98px;position:relative;text-align:center;padding-top:4px}
+.route li::before{content:"";position:absolute;top:34px;left:0;right:0;height:2px;background:var(--gold)}
+.route li:first-child::before{left:50%}.route li:last-child::before{right:50%}
+.route .ch{position:relative;display:inline-grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--card);border:2px solid var(--gold);font-size:26px;color:var(--red)}
+.route b{display:block;font-size:13px;margin-top:6px}
+.route span{display:block;font-size:12px;color:var(--soft)}
+
+/* calls */
+.calls{display:grid;gap:10px}
+.call{background:var(--card);border-left:4px solid var(--red);padding:14px 16px;border-radius:0 10px 10px 0}
+.call h3{font-size:16px;margin-bottom:4px}
+.call p{margin:0;color:var(--soft)}
+.call.keep{border-left-color:var(--jade)}
+
+/* actions */
+.group{margin:22px 0 6px;font-family:"Noto Serif SC",Georgia,serif;font-weight:600;font-size:17px}
+.prog{font-size:14px;color:var(--soft);margin-bottom:6px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;width:0;background:var(--jade);transition:width .3s}
+.act{display:flex;gap:12px;align-items:flex-start;background:var(--card);padding:12px 14px;border-radius:10px;margin-bottom:8px;border:1px solid var(--line)}
+.act input{width:20px;height:20px;margin-top:2px;accent-color:var(--jade);flex:none}
+.act .when{display:inline-block;font-size:12px;font-weight:600;color:var(--red);margin-bottom:2px}
+.act p{margin:0}
+.act small{display:block;color:var(--soft);margin-top:3px}
+.act.done p{text-decoration:line-through;color:var(--soft)}
+
+/* city */
+.city{background:var(--card);border-radius:14px;margin:0 0 22px;overflow:hidden;border:1px solid var(--line)}
+.city header{display:flex;gap:14px;align-items:center;padding:18px 16px 14px;background:var(--wash);border-bottom:1px solid var(--line)}
+.city .cc{font-size:34px;line-height:1;color:var(--red);flex:none}
+.city header h3{font-size:22px}
+.city header .dates{color:var(--soft);font-size:14px;margin-top:2px}
+.seal{margin-left:auto;flex:none;width:60px;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--red);color:#fff;border-radius:6px;box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 4.5px rgba(255,255,255,.8);text-align:center;line-height:1}
+.seal big{display:block;font-family:"Noto Serif SC",Georgia,serif;font-weight:700;font-size:24px;line-height:1;margin:0 0 3px}
+.seal small{display:block;font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:11px;letter-spacing:.02em;line-height:1}
+.maps{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px 0}
+.maps a{font-size:13px;font-weight:500;text-decoration:none;padding:6px 10px;border-radius:8px;border:1px solid var(--line);color:var(--jade)}
+.where{padding:10px 16px 0;margin:0;color:var(--soft);font-size:14px}
+details{border-top:1px solid var(--line)}
+.city details:first-of-type{margin-top:14px}
+summary{list-style:none;cursor:pointer;padding:12px 16px;display:grid;grid-template-columns:92px 1fr 16px;gap:10px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .d{font-weight:600;font-size:13px;color:var(--red);white-space:nowrap}
+summary .t{font-weight:500}
+summary::after{content:"+";color:var(--soft);font-weight:600}
+details[open] summary::after{content:"–"}
+.day{padding:0 16px 14px 112px;color:var(--ink)}
+.day p{margin:0 0 8px}
+.day .how{font-size:13px;color:var(--soft)}
+.day .kid{font-size:13px;color:var(--jade)}
+@media (max-width:520px){.day{padding-left:16px}summary{grid-template-columns:88px 1fr 14px}}
+.booked{display:grid;gap:8px}
+.bk{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--jade);border-radius:0 10px 10px 0;padding:12px 14px}
+.bk .when{flex:none;width:74px;font-size:12px;font-weight:600;color:var(--red)}
+.bk p{margin:0;font-weight:600}
+.bk small{display:block;color:var(--soft);font-weight:400;margin-top:2px}
+.h .tag.done{background:var(--jade)}
+.tours{padding:16px;border-top:1px solid var(--line)}
+.tours h4{margin:0 0 10px;font-family:"Noto Serif SC",Georgia,serif;font-size:16px}
+.stay{padding:16px;border-top:1px solid var(--line);background:var(--wash)}
+.stay h4{margin:0 0 10px;font-family:"Noto Serif SC",Georgia,serif;font-size:16px}
+.h{margin:0 0 12px}
+.h a{font-weight:600}
+.h .rate{display:block;font-size:12px;font-weight:600;color:var(--gold);margin-top:2px}
+.h .rate a{color:var(--gold)}
+.h .tag.alt{background:var(--gold)}
+.h .tag.red{background:var(--red)}
+.h .tag{display:inline-block;font-size:11px;font-weight:600;color:#fff;background:var(--jade);padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:2px}
+.h p{margin:2px 0 0;color:var(--soft);font-size:14px}
+.spa{margin-top:12px;padding:12px;border-radius:10px;border:1px dashed var(--gold);font-size:14px}
+.spa b{color:var(--gold)}
+
+/* know */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.box h3{font-size:16px;margin-bottom:6px}
+.box p,.box ul{margin:0;color:var(--soft);font-size:14px}
+.box ul{padding-left:18px}
+.temps{width:100%;border-collapse:collapse;font-size:14px}
+.temps td{padding:6px 0;border-bottom:1px solid var(--line)}
+.temps td:last-child{text-align:right;font-weight:600}
+.scroll{overflow-x:auto}
+footer{padding:30px 0 40px;color:var(--soft);font-size:13px}
+@media print{nav{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="lanterns" viewBox="0 0 90 110" aria-hidden="true">
+    <g transform="translate(66 0)">
+      <line x1="0" y1="0" x2="0" y2="26" stroke="#B8892B" stroke-width="1.5"/>
+      <rect x="-7" y="26" width="14" height="4" fill="#B8892B"/>
+      <ellipse cx="0" cy="46" rx="16" ry="17" fill="#C8352A"/>
+      <ellipse cx="0" cy="46" rx="8" ry="17" fill="none" stroke="#8E1F17" stroke-width="1"/>
+      <rect x="-7" y="62" width="14" height="4" fill="#B8892B"/>
+      <line x1="0" y1="66" x2="0" y2="84" stroke="#B8892B" stroke-width="2"/>
+    </g>
+    <g transform="translate(28 0) scale(.72)">
+      <line x1="0" y1="0" x2="0" y2="46" stroke="#B8892B" stroke-width="1.5"/>
+      <rect x="-7" y="46" width="14" height="4" fill="#B8892B"/>
+      <ellipse cx="0" cy="66" rx="16" ry="17" fill="#C8352A"/>
+      <ellipse cx="0" cy="66" rx="8" ry="17" fill="none" stroke="#8E1F17" stroke-width="1"/>
+      <rect x="-7" y="82" width="14" height="4" fill="#B8892B"/>
+      <line x1="0" y1="86" x2="0" y2="104" stroke="#B8892B" stroke-width="2"/>
+    </g>
+  </svg>
+  <div class="txt">
+    <div class="big brush">中国</div>
+    <h1>Beijing to Shanghai</h1>
+    <p>27 December to 13 January. 18 days, 6 stops, one three-year-old.</p>
+  </div>
+
+  <svg class="hills" viewBox="0 0 400 250" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <circle cx="300" cy="150" r="40" fill="#A6261C" opacity=".85"/>
+    <path d="M0 185 C40 140 70 160 100 130 C130 100 160 150 190 135 C220 120 250 85 290 118 C320 142 350 112 400 140 L400 250 L0 250Z" fill="#3B4045" opacity=".55"/>
+    <path d="M0 205 C50 170 90 195 130 172 C170 150 200 190 240 176 C280 162 320 190 400 170 L400 250 L0 250Z" fill="#262A2E"/>
+    <g fill="#262A2E"><rect x="124" y="160" width="12" height="14"/><rect x="124" y="156" width="3" height="4"/><rect x="128.5" y="156" width="3" height="4"/><rect x="133" y="156" width="3" height="4"/>
+    <rect x="234" y="164" width="12" height="14"/><rect x="234" y="160" width="3" height="4"/><rect x="238.5" y="160" width="3" height="4"/><rect x="243" y="160" width="3" height="4"/></g>
+    <path d="M130 172 C160 160 190 186 240 176" stroke="#3B4045" stroke-width="2" fill="none"/>
+    <path d="M0 228 C60 210 120 224 180 216 C240 208 300 230 400 214 L400 250 L0 250Z" fill="#101315"/>
+    <g fill="#101315" transform="translate(338 214)">
+      <rect x="-9" y="-10" width="18" height="12"/><path d="M-17 -10 Q0 -16 17 -10 L12 -14 L-12 -14Z"/>
+      <rect x="-7" y="-24" width="14" height="10"/><path d="M-14 -24 Q0 -29 14 -24 L10 -28 L-10 -28Z"/>
+      <rect x="-5" y="-37" width="10" height="9"/><path d="M-11 -37 Q0 -41 11 -37 L8 -41 L-8 -41Z"/>
+      <rect x="-1" y="-50" width="2" height="9"/>
+    </g>
+  </svg>
+  <div class="tail">Times on this page are local China time unless marked Sydney. China is 3 hours behind Sydney in December.</div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#route">Route</a><a href="#booked">Booked</a><a href="#actions">To book</a><a href="#beijing">Day by day</a><a href="#shopping">Shopping</a><a href="#know">Good to know</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="route">
+  <h2>The route</h2>
+  <p class="lede">17 nights, six hotels. Bullet trains wherever possible, and just two flights, into and out of Yunnan.</p>
+  <ol class="route">
+    <li><span class="ch brush">京</span><b>Beijing</b><span>4 nights</span></li>
+    <li><span class="ch brush">平</span><b>Pingyao</b><span>2 nights</span></li>
+    <li><span class="ch brush">秦</span><b>Xi'an</b><span>2 nights</span></li>
+    <li><span class="ch brush">渝</span><b>Chongqing</b><span>2 nights</span></li>
+    <li><span class="ch brush">雪</span><b>Lijiang</b><span>4 nights</span></li>
+    <li><span class="ch brush">沪</span><b>Shanghai</b><span>3 nights</span></li>
+  </ol>
+</section>
+
+<section id="booked">
+  <h2>Booked</h2>
+  <p class="lede">Confirmed in Trip.com. Booking references are in the app.</p>
+  <div class="booked">
+    <div class="bk"><span class="when">27 to 31 Dec</span><div><p>Tian'anmen Front Street Left Court Hotel, Beijing</p><small>Family Friendly Family Room, 4 nights. Off Qianmen Street.</small></div></div>
+    <div class="bk"><span class="when">28 to 30 Dec</span><div><p>Private Beijing tour (Trip.com)</p><small>Business 7-seater with driver all three days, 8:30am pickup from the hotel, child car seat included. English-speaking guide on 29 and 30 Dec. Tickets included: Mutianyu (round-trip cable car), Forbidden City, Jingshan, Temple of Heaven, Summer Palace. AU$1,470.</small></div></div>
+    <div class="bk"><span class="when">31 Dec to 2 Jan</span><div><p>Xihe Academy Mansion, Pingyao</p><small>Shuyuan Ondol Room (heated floor), 2 nights.</small></div></div>
+    <div class="bk"><span class="when">Thu 31 Dec</span><div><p>Train G625, Beijing Fengtai to Pingyao Gucheng</p><small>Departs 10:38 from Beijing Fengtai (not Beijing West), arrives about 14:10. First class. Pre-ordered on Trip.com; tickets issue when sales open around 16 Dec.</small></div></div>
+    <div class="bk"><span class="when">Sat 2 Jan</span><div><p>Train D2799, Pingyao Gucheng to Xi'an North</p><small>Departs 11:36, arrives about 14:03. First class. Pre-ordered; tickets issue around 18 Dec.</small></div></div>
+    <div class="bk"><span class="when">2 to 4 Jan</span><div><p>Guardian Han Tang, Xi'an</p><small>Glorious Tang Dynasty Two-Bedroom Family Suite, 2 nights. Inside the city walls on West Street.</small></div></div>
+    <div class="bk"><span class="when">Sun 3 Jan</span><div><p>Private Xi'an day tour</p><small>Terracotta Army, Huaqing Palace and the City Wall. 8am pickup from Guardian Han Tang. Business 7-seater with driver (Mandarin), child car seat, English-speaking guide, adult tickets included. AU$551.</small></div></div>
+    <div class="bk"><span class="when">Mon 4 Jan</span><div><p>Train G2207, Xi'an North to Chongqing West</p><small>Departs 12:51, arrives about 18:11. Pre-ordered; tickets issue around 20 Dec.</small></div></div>
+    <div class="bk"><span class="when">4 to 6 Jan</span><div><p>Vista High-Rise River View Hotel, Chongqing</p><small>Dream of Hidden River 270° River-View Suite, 85 m², 46th floor, 2 nights. Afternoon tea included.</small></div></div>
+    <div class="bk"><span class="when">6 to 10 Jan</span><div><p>InterContinental Lijiang Ancient Town Resort</p><small>King Junior Suite, 4 nights. Non-refundable. Indoor pool, a 10-minute walk to the Old Town.</small></div></div>
+    <div class="bk"><span class="when">Wed 6 Jan</span><div><p>Flight 3U8011, Chongqing to Lijiang</p><small>Departs 8:30pm from Chongqing Jiangbei T3, lands 10:00pm at Lijiang Sanyi.</small></div></div>
+    <div class="bk"><span class="when">Sun 10 Jan</span><div><p>Flight MU6146, Lijiang to Shanghai</p><small>Departs 11:40am from Lijiang Sanyi, lands 3:00pm at Shanghai Pudong T1.</small></div></div>
+    <div class="bk"><span class="when">10 to 13 Jan</span><div><p>The Langham Shanghai, Xintiandi</p><small>3 nights. Indoor pool, walkable to Xintiandi and the French Concession. Free cancellation until 6pm, 9 Jan.</small></div></div>
+  </div>
+</section>
+
+<section id="actions">
+  <h2>What to book, and when</h2>
+  <p class="lede">Tick things off as you go. Your ticks are saved on this device.</p>
+  <div class="prog"><span id="count">0</span> of <span id="total">0</span> done</div>
+  <div class="bar"><i id="fill"></i></div>
+
+  <div class="group">Now</div>
+  <label class="act"><input type="checkbox" data-k="passports"><div><p>Check all three passports are valid to at least mid July 2027</p><small>China wants six months past your return. Adya's included. <a href="https://www.smartraveller.gov.au/destinations/asia/china" target="_blank" rel="noopener">Smartraveller: China</a></small></div></label>
+        <label class="act"><input type="checkbox" data-k="vistaold"><div><span class="when">Now</span><p>Cancel the old Vista booking (Featured Room, A$417)</p><small>Only once the suite booking shows "Confirmed", not "Confirming". Free to cancel until 6pm, 4 Jan.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="icpickup"><div><span class="when">Before Christmas</span><p>Ask the InterContinental Lijiang for an airport pickup, Wed 6 Jan, 10pm</p><small>Flight 3U8011 lands at Lijiang Sanyi at 10:00pm. Message them through Trip.com; it's a paid transfer.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="apps"><div><p>Set up Alipay and WeChat Pay with your Australian card</p><small>Also download Trip.com, Didi, Amap (Gaode) and a translation app with offline Chinese.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="esim"><div><p>Buy a roaming eSIM for each phone</p><small>Google, Gmail and WhatsApp work on a roaming eSIM. They won't work on hotel wifi.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="disney"><div><p>Book Shanghai Disneyland for Wed 13 January</p><small><a href="https://www.shanghaidisneyresort.com/en/" target="_blank" rel="noopener">Shanghai Disney Resort</a></small></div></label>
+
+  <label class="act"><input type="checkbox" data-k="guides"><div><p>Book private guides for the big days</p><small>Jade Dragon only. Beijing and Xi'an are booked and Pingyao is self-guided. Links are in each city's "Tours and guides" section.</small></div></label>
+
+  <div class="group">Early to mid December</div>
+  <label class="act"><input type="checkbox" data-k="visa"><div><span class="when">Early Dec</span><p>Re-check visa-free entry</p><small>Australians get 30 days visa-free. The current scheme runs to 31 December 2026 and you enter on 27 December, so you're covered. Worth a two-minute check on Smartraveller in case anything changes.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="trainsissued"><div><span class="when">16 to 20 Dec</span><p>Check all three trains are ticketed</p><small>They're pre-orders, not tickets yet. Trip.com sends a "ticketing result" when sales open: around 16 Dec (Pingyao), 18 Dec (Xi'an) and 20 Dec (Chongqing). If one fails, rebook straight away; backups are G621 at 07:12, D2827 at 11:20, and G1833 at 13:16.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="forbiddenguide"><div><span class="when">Before 22 Dec</span><p>Confirm the Beijing tour has the Forbidden City covered</p><small>Message the planner via Trip.com: they'll book the moment tickets release (8pm Beijing time, Tue 22 Dec), they have all three passports including Adya's (free under 6 but still needs a reservation), and they'll make the Tiananmen Square reservation for the same morning.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="xiantour"><div><span class="when">Before Christmas</span><p>Confirm the Xi'an tour details for Sun 3 Jan</p><small>Guide, 8am pickup and car seat are confirmed. Ask via "Contact Travel Expert" in Trip.com: Terracotta tickets secured with your passports (Adya free, but add her passport), no shopping stops, and the guide comes inside Pits 1, 2 and 3 and the bronze chariots.</small></div></label>
+    <label class="act"><input type="checkbox" data-k="arrival"><div><span class="when">Before you fly</span><p>Fill in China's online arrival card</p><small>It replaced the paper form in late 2025. Saves a queue at Beijing airport.</small></div></label>
+
+  <label class="act"><input type="checkbox" data-k="xihepickup"><div><span class="when">Now</span><p>Ask Xihe Academy Mansion for pickup from Pingyao Gucheng station, Thu 31 Dec</p><small>Train G625 arrives about 14:10. Message them through Trip.com with the train number.</small></div></label>
+
+  <div class="group">While you're in China</div>
+  <label class="act"><input type="checkbox" data-k="cq1949"><div><span class="when">Week before</span><p>Chongqing 1949 tickets for Wed 6 Jan, 2pm</p><small>Zone A or B rotating seats. Shows run daily at 2pm, 4pm and 7:30pm. On Trip.com or Klook with your passports. <a href="https://us.trip.com/travel-guide/attraction/chongqing/chongqing-1949-129377915/" target="_blank" rel="noopener">Trip.com</a></small></div></label>
+    <label class="act"><input type="checkbox" data-k="jade"><div><span class="when">By Fri 1 Jan</span><p>Jade Dragon Snow Mountain cable car for Fri 8 Jan</p><small>Book 7 days ahead for a good time slot. Ask the Lijiang hotel concierge to do it. Book Spruce Meadow (3,240 m), not the Glacier cable car (4,506 m), with Adya.</small></div></label>
+    <label class="act"><input type="checkbox" data-k="tiger"><div><span class="when">By Wed 6 Jan</span><p>Private driver for Tiger Leaping Gorge, Sat 9 Jan</p><small>Ask the Lijiang hotel to arrange a car and driver for the full day.</small></div></label>
+  <label class="act"><input type="checkbox" data-k="car"><div><span class="when">Sun 10 Jan</span><p>Private car for Wed 13 Jan</p><small>Hotel to Disneyland to Pudong airport, bags stay in the car all day.</small></div></label>
+</section>
+
+<section id="days">
+  <h2>Day by day</h2>
+  <p class="lede">Tap a day to open it. Map links are for planning at home. In China, use Amap or Apple Maps.</p>
+
+  <!-- BEIJING -->
+  <article class="city" id="beijing">
+    <header><span class="cc brush">北京</span><div><h3>Beijing</h3><div class="dates">Sun 27 to Thu 31 Dec</div></div><span class="seal"><big>4</big><small>nights</small></span></header>
+    <div class="maps"><a href="https://www.google.com/maps/search/?api=1&query=Beijing+China" target="_blank" rel="noopener">Beijing on the map</a><a href="https://www.google.com/maps/search/?api=1&query=Tian%27anmen+Front+Street+Left+Court+Hotel+Beijing" target="_blank" rel="noopener">Your hotel: Qianmen</a></div>
+    <p class="where">You're in a hutong just off Qianmen Street, south of Tiananmen Square. Tiananmen is about 1.3 km on foot, the Temple of Heaven is close, and Zhushikou metro is 640 m away.</p>
+    <details><summary><span class="d">Sun 27 Dec</span><span class="t">Land, settle, frozen lakes</span></summary><div class="day">
+      <p>Land at 10am, private car to the hotel (about 45 minutes). Nap.</p>
+      <p>Late afternoon at Shichahai. The frozen lake turns into a rink with ice chairs and sleds once the ice is thick enough, usually from late December. Wander the hutong lanes around Yandai Xiejie after.</p>
+      <p class="kid">Adya: the ice chairs are the highlight of Beijing for most small kids.</p>
+    </div></details>
+    <details><summary><span class="d">Mon 28 Dec</span><span class="t">Walk the Great Wall at Mutianyu</span></summary><div class="day">
+      <p>Driver collects you at 8:30am, about 90 minutes each way. Your ticket is a round-trip cable car to Tower 14. Walk east along the wall towards Tower 6 and back, as far as Adya manages; it's restored watchtowers and big valley views the whole way. If you'd rather finish at Tower 6, buy a chairlift ticket down there on the day and tell the driver.</p>
+      <p>Don't head west from Tower 14. It gets very steep, and there may be ice. Bring the carrier for Adya.</p>
+      <p class="how">Why Monday: the Forbidden City is closed.</p>
+    </div></details>
+    <details><summary><span class="d">Tue 29 Dec</span><span class="t">Tiananmen Square, Forbidden City, Jingshan</span></summary><div class="day">
+      <p>Driver and English-speaking guide from 8:30am. Tiananmen Square first, then north through Tiananmen Gate straight into the Forbidden City. Allow three hours inside and bring the carrier; it's a long walk on stone.</p>
+      <p>Climb Jingshan Park behind the north gate for the view over the golden roofs at sunset. Peking duck for dinner.</p>
+    </div></details>
+    <details><summary><span class="d">Wed 30 Dec</span><span class="t">Temple of Heaven, Summer Palace</span></summary><div class="day">
+      <p>Driver and guide from 8:30am. Temple of Heaven first, while locals are doing tai chi, dancing and hacky sack in the park.</p>
+      <p>Afternoon at the Summer Palace. Kunming Lake freezes over in winter and turns into a huge skating and ice-chair area in front of the palace.</p>
+      <p class="how">Pingyao train tomorrow at 10:38 from Beijing Fengtai, about 25 minutes by car from the hotel.</p>
+    </div></details>
+    <div class="tours"><h4>Tours and guides</h4>
+      <div class="h"><p><b>Booked:</b> private car and driver 28 to 30 Dec (driver speaks Mandarin), plus an English-speaking guide on 29 and 30 Dec. Great Wall day is driver only, so you walk at your own pace.</p></div>
+    </div>
+    <div class="stay"><h4>Where you're staying</h4>
+      <div class="h"><a href="https://www.google.com/maps/search/?api=1&query=Tian%27anmen+Front+Street+Left+Court+Hotel+Beijing" target="_blank" rel="noopener">Tian'anmen Front Street Left Court Hotel</a><span class="tag done">Booked</span><p>Family Friendly Family Room, 27 to 31 December. A 21-room boutique hotel in a hutong off Qianmen Street, each room designed differently, with afternoon tea and a free minibar. No pool or spa, so plan warm-ups in cafés and the room.</p><span class="rate">Trip.com about 9.8 from 1,000+ reviews. <a href="https://us.trip.com/hotels/beijing-hotel-detail-110461921/tian-anmen-front-street-left-court-hotel-beijing/" target="_blank" rel="noopener">Hotel page</a></span></div>
+    </div>
+  </article>
+
+  <!-- PINGYAO -->
+  <article class="city" id="pingyao">
+    <header><span class="cc brush">平遥</span><div><h3>Pingyao</h3><div class="dates">Thu 31 Dec to Sat 2 Jan</div></div><span class="seal"><big>2</big><small>nights</small></span></header>
+    <div class="maps"><a href="https://www.google.com/maps/search/?api=1&query=Pingyao+Ancient+City" target="_blank" rel="noopener">Pingyao on the map</a><a href="https://www.google.com/maps/search/?api=1&query=Ming-Qing+Street+Pingyao" target="_blank" rel="noopener">Stay: inside the walls</a></div>
+    <p class="where">Stay inside the walls, in a restored courtyard house. The old town is mostly car-free, so you walk everywhere.</p>
+    <details><summary><span class="d">Thu 31 Dec</span><span class="t">Bullet train west, New Year's Eve inside the walls</span></summary><div class="day">
+      <p>Train G625 from Beijing Fengtai at 10:38 (leave the hotel by 9:30), arriving Pingyao Gucheng about 14:10. Xihe collects you from the station.</p>
+      <p>Afternoon wandering Ming-Qing Street and the old lanes. Rishengchang, China's first draft bank, shows how Pingyao's merchants ran money across the empire.</p>
+      <p>New Year's Eve under the red lanterns. Quiet, local and nothing like a big-city countdown.</p>
+    </div></details>
+    <details><summary><span class="d">Fri 1 Jan</span><span class="t">City wall, courtyard mansions</span></summary><div class="day">
+      <p>Morning walk on the 14th-century city wall, then the old temples and yamen (magistrate's court) inside town.</p>
+      <p>Afternoon with a hotel-arranged driver to the Wang Family Courtyard or Qiao Family Courtyard, vast merchant compounds about 45 to 60 minutes away. Or keep it short: Shuanglin Temple and its painted clay sculptures, 15 minutes by taxi.</p>
+      <p class="kid">Adya: courtyards are made for running around in.</p>
+    </div></details>
+    <div class="tours"><h4>Exploring on your own</h4>
+      <div class="h"><p><b>Inside the walls, no guide needed.</b> The old town is compact, flat and mostly car-free. Walking the streets is free; one combined ticket covers the city wall, Rishengchang bank, the magistrate's court and the other sites for your whole stay. Buy it at any site or ask Xihe. Electric carts run around town when Adya's legs give out.</p></div>
+      <div class="h"><p><b>Do a little homework.</b> Read up on Pingyao as China's old banking capital before you go, or use the audio guide at Rishengchang. That covers most of what a guide would tell you.</p></div>
+      <div class="h"><p><b>Outside the walls, just a driver.</b> Shuanglin Temple is about 15 minutes away by taxi or Didi. For the Wang or Qiao Family Courtyard, ask Xihe to arrange a car and driver for Friday afternoon.</p></div>
+    </div>
+    <div class="stay"><h4>Where you're staying</h4>
+      <div class="h"><a href="https://www.google.com/maps/search/?api=1&query=Xihe+Academy+Mansion+Pingyao" target="_blank" rel="noopener">Xihe Academy Mansion</a><span class="tag done">Booked</span><p>Shuyuan Ondol Room, 31 December to 2 January. A restored scholars' academy inside the walls. The ondol room has a heated floor, which is ideal at minus 10°C. Ask them to arrange your station pickup and a driver for Friday afternoon.</p><span class="rate">Trip.com about 9.8 from 1,000+ reviews. <a href="https://www.trip.com/hotels/pingyao-hotel-detail-60699443/xihe-academy-mansion/" target="_blank" rel="noopener">Hotel page</a></span></div>
+    </div>
+  </article>
+
+  <!-- XIAN -->
+  <article class="city" id="xian">
+    <header><span class="cc brush">西安</span><div><h3>Xi'an</h3><div class="dates">Sat 2 to Mon 4 Jan</div></div><span class="seal"><big>2</big><small>nights</small></span></header>
+    <div class="maps"><a href="https://www.google.com/maps/search/?api=1&query=Xi%27an+China" target="_blank" rel="noopener">Xi'an on the map</a><a href="https://www.google.com/maps/search/?api=1&query=Guardian+Han+Tang+Xi%27an" target="_blank" rel="noopener">Your hotel: West Street</a></div>
+    <p class="where">You're inside the city walls on West Street, about a kilometre from the Drum Tower, the Muslim Quarter and the wall itself. Qiaozikou metro is next door.</p>
+    <details><summary><span class="d">Sat 2 Jan</span><span class="t">Bullet train south, Muslim Quarter</span></summary><div class="day">
+      <p>Train D2799 from Pingyao Gucheng at 11:36, arriving Xi'an North about 14:03. A last slow morning in Pingyao first.</p>
+      <p>Evening: Muslim Quarter food streets and the Bell and Drum Towers lit up.</p>
+    </div></details>
+    <details><summary><span class="d">Sun 3 Jan</span><span class="t">Terracotta Army, Huaqing Palace, City Wall</span></summary><div class="day">
+      <p>Booked private tour with an English-speaking guide, 8am pickup from the hotel, about 9 hours. Terracotta Army first, early, before the holiday crowds. Then Huaqing Palace, the Tang emperors' hot-spring palace, about 15 minutes away. Back into town for the City Wall in the late afternoon.</p>
+      <p class="kid">Adya: it's a long day. Pack snacks and the carrier, and let her nap in the car between stops.</p>
+    </div></details>
+    <details><summary><span class="d">Mon 4 Jan</span><span class="t">Dumpling class, bullet train to Chongqing</span></summary><div class="day">
+      <p>Morning home visit and cooking class, hand-pulled noodles or dumplings. Kept from your agent's plan because it's good.</p>
+      <p>Train G2207 from Xi'an North at 12:51, arriving Chongqing West about 18:11. Keep the cooking class to the early morning and leave for the station by 11:45; it's about 40 minutes. Check in at the Vista and head out for dinner.</p>
+    </div></details>
+    <div class="tours"><h4>Tours and guides</h4>
+      <div class="h"><p><b>Booked:</b> private day tour on Sun 3 Jan (Terracotta Army, Huaqing Palace, City Wall) with an English-speaking guide, a business 7-seater with driver and a child car seat, 8am pickup. Everything else in Xi'an is walkable from the hotel.</p></div>
+    </div>
+    <div class="stay"><h4>Where you're staying</h4>
+      <div class="h"><a href="https://www.google.com/maps/search/?api=1&query=Guardian+Han+Tang+Xi%27an" target="_blank" rel="noopener">Guardian Han Tang</a><span class="tag done">Booked</span><p>Glorious Tang Dynasty Two-Bedroom Family Suite, 2 to 4 January. Every room is a suite with a living room and two bathrooms, designed around Han and Tang dynasty style, with a museum exhibition in the lobby. Spa at extra cost. It opened in 2026, so check recent reviews closer to the date.</p><span class="rate"><a href="https://www.trip.com/hotels/xi-an-hotel-detail-134604299/guardian-han-tang/" target="_blank" rel="noopener">Hotel page</a></span></div>
+    </div>
+  </article>
+
+  <!-- CHONGQING -->
+  <article class="city" id="chongqing">
+    <header><span class="cc brush">重庆</span><div><h3>Chongqing</h3><div class="dates">Mon 4 to Wed 6 Jan, fly out 8:30pm</div></div><span class="seal"><big>2</big><small>nights</small></span></header>
+    <div class="maps"><a href="https://www.google.com/maps/search/?api=1&query=Chongqing+China" target="_blank" rel="noopener">Chongqing on the map</a><a href="https://www.google.com/maps/search/?api=1&query=Vista+High-Rise+River+View+Hotel+Jiefangbei+Chongqing" target="_blank" rel="noopener">Your hotel: Jiefangbei</a></div>
+    <p class="where">You're on the 45th floor of a tower on Xinhua Road in Jiefangbei, walking distance to Hongyadong, the Yangtze cableway and Bayi Road food street. No breakfast at the hotel, so eat on Bayi Road.</p>
+    <details><summary><span class="d">Tue 5 Jan</span><span class="t">Pandas, 3D city, Nanshan by night</span></summary><div class="day">
+      <p>Morning at Chongqing Zoo for the giant pandas, at opening when they're most active. Then Liziba, where the monorail runs straight through an apartment block, and Eling Park's viewing tower. Lunch at Eling Second Factory.</p>
+      <p>Rest at the hotel in the afternoon.</p>
+      <p>Early hot pot dinner (order the split yuanyang pot, one side spicy, one side mild), then a taxi up Nanshan, about 30 minutes, to the One Tree viewing platform. The whole peninsula and both rivers lit up below you is the classic Chongqing night view.</p>
+      <p class="kid">Adya: aim to be up there by 7pm and back by 9. Bring a warm layer; it's breezy on the mountain.</p>
+    </div></details>
+    <details><summary><span class="d">Wed 6 Jan</span><span class="t">Cableway, Jiangtan Park, Chongqing 1949, evening flight</span></summary><div class="day">
+      <p>Check out and leave bags at the hotel. Early, take a Didi to the south station of the Yangtze River Cableway (Shangxin Street) and ride north across the river. The queue at the south end is usually much shorter.</p>
+      <p>Walk to Hongyadong, then across Qiansimen Bridge to Jiangtan Park for the view back across the river. Early lunch.</p>
+      <p>2pm: Chongqing 1949 at its purpose-built theatre in Ciqikou, about 30 minutes by Didi. The audience sits on a 360° rotating platform that moves with the stage, about 75 minutes, no interval. Book Zone A or B, the rotating seats. It's in Chinese, so rent the English translation headphones; arrive 30 minutes early.</p>
+      <p>Afterwards, a wander through Ciqikou old town next door, then back to the hotel for bags and an early dinner. Leave for the airport by 6:30pm. Flight 3U8011 departs 8:30pm from Jiangbei T3 and lands in Lijiang at 10:00pm.</p>
+      <p class="kid">Adya: under 1.2 m she goes free without a seat, but 75 minutes on a lap is long, so consider buying her a seat. The story is a wartime prison drama with loud effects, so sit by an aisle in case you need a break. Pyjamas on for the flight.</p>
+    </div></details>
+    <div class="tours"><h4>Tours and guides</h4>
+      <div class="h"><a href="https://www.trip.com/things-to-do/experiences/chongqing-day-tour/" target="_blank" rel="noopener">Trip.com: Chongqing day tours</a><p>The top-rated city tour (cableway, Liziba monorail, Hongyadong) is a Trip.Select small group with thousands of reviews, and kids go free. Filter to private if you'd rather go alone, and ask to add the zoo in the morning.</p></div>
+    </div>
+    <div class="stay"><h4>Where you're staying</h4>
+      <div class="h"><a href="https://www.google.com/maps/search/?api=1&query=Vista+High-Rise+River+View+Hotel+Jiefangbei+Chongqing" target="_blank" rel="noopener">Vista High-Rise River View Hotel</a><span class="tag done">Booked</span><p>Dream of Hidden River 270° River-View Suite, 4 to 6 January: 85 m² on the 46th floor, with afternoon tea and oil tea included. Lobby on the 45th floor, with curved floor-to-ceiling windows over the confluence, Qiansimen Bridge and Hongyadong. Smart rooms with a projector and a window bathtub, plus 24-hour butlers. Luggage desk on the ground floor. No pool or breakfast; they make Chongqing oil tea in the mornings.</p><span class="rate">Trip.com about 9.8 from 4,700+ reviews. <a href="https://www.trip.com/hotels/chongqing-hotel-detail-125434704/vista-high-rise-river-view-hotel-jiefangbei-area-hong-ya-dong/" target="_blank" rel="noopener">Hotel page</a></span></div>
+    </div>
+  </article>
+
+  <!-- LIJIANG -->
+  <article class="city" id="lijiang">
+    <header><span class="cc brush">丽江</span><div><h3>Lijiang</h3><div class="dates">Arrive 10pm Wed 6 Jan, leave Sun 10 Jan</div></div><span class="seal"><big>4</big><small>nights</small></span></header>
+    <div class="maps"><a href="https://www.google.com/maps/search/?api=1&query=Lijiang+Yunnan" target="_blank" rel="noopener">Lijiang on the map</a><a href="https://www.google.com/maps/search/?api=1&query=InterContinental+Lijiang+Ancient+Town+Resort" target="_blank" rel="noopener">Your hotel: by the Old Town</a><a href="https://www.google.com/maps/search/?api=1&query=Tiger+Leaping+Gorge+Upper+Gorge" target="_blank" rel="noopener">Tiger Leaping Gorge</a></div>
+    <p class="where">One base for all four nights, a 10-minute walk from Sifang Street in the Old Town, so dinners are on foot. Jade Dragon is about 50 minutes' drive. You're at 2,400 m, so pace the first day.</p>
+    <details><summary><span class="d">Thu 7 Jan</span><span class="t">Shuhe, Baisha, a Naxi home</span></summary><div class="day">
+      <p>Sleep in after the late arrival. Easy day while you adjust to the altitude. Shuhe Ancient Town in the morning. Baisha village and its murals, then a Naxi family home visit with fresh soybean milk.</p>
+      <p class="how">Optional: an evening wander through Lijiang Old Town once the day crowds thin out.</p>
+    </div></details>
+    <details><summary><span class="d">Fri 8 Jan</span><span class="t">Jade Dragon Snow Mountain</span></summary><div class="day">
+      <p>Early start, about an hour's drive. Spruce Meadow cable car (3,240 m) and Blue Moon Valley's turquoise pools.</p>
+      <p class="kid">Adya: skip the Glacier Park cable car. 4,506 m is serious altitude for a three-year-old, and Spruce Meadow still gives you the snow peak up close.</p>
+      <p class="how">The cable cars close in high wind or snow. If Friday's forecast is bad, swap this day with Saturday.</p>
+    </div></details>
+    <details><summary><span class="d">Sat 9 Jan</span><span class="t">Tiger Leaping Gorge</span></summary><div class="day">
+      <p>Day trip with a private driver, about two hours each way. At the Upper Gorge, a long stone staircase takes you down to a platform right beside the rapids, with the gorge walls towering above.</p>
+      <p class="kid">Adya: carrier on the stairs. There's a paid escalator for part of the climb back up.</p>
+    </div></details>
+    <details><summary><span class="d">Sun 10 Jan</span><span class="t">Fly to Shanghai</span></summary><div class="day">
+      <p>Leave the hotel by 9:30am. Flight MU6146 departs 11:40am and lands at Shanghai Pudong T1 at 3:00pm.</p>
+    </div></details>
+    <div class="tours"><h4>Tours and guides</h4>
+      <div class="h"><a href="https://us.trip.com/things-to-do/detail/34088818/" target="_blank" rel="noopener">Private Jade Dragon and Baisha day tour</a><p>Private guide and car. It's customisable: ask them to do Spruce Meadow and Blue Moon Valley rather than the Glacier Park cable car.</p></div>
+      <div class="h"><a href="https://www.tripadvisor.com/AttractionProductReview-g1229994-d11990068-Private_Lijiang_Day_Trip_to_Upper_Tiger_Leaping_Gorge_and_Black_Dragon_Pool-Yulon.html" target="_blank" rel="noopener">Private Tiger Leaping Gorge day trip, Yunnan Adventure Travel</a><p>Trip.com's gorge listings have very few reviews, so this one is on Tripadvisor. It's a long-running local operator with strong reviews. Alternatively your hotel can arrange a car and driver.</p></div>
+    </div>
+    <div class="stay"><h4>Where you're staying</h4>
+      <div class="h"><a href="https://www.google.com/maps/search/?api=1&query=InterContinental+Lijiang+Ancient+Town+Resort" target="_blank" rel="noopener">InterContinental Lijiang Ancient Town Resort</a><span class="tag done">Booked</span><p>King Junior Suite, 6 to 10 January (non-refundable). Naxi courtyard architecture with Jade Dragon views. Heated indoor pool (13 m by 25 m) with a children's area, plus sauna and steam room. Restaurants on site for the nights after Jade Dragon and the gorge; the Old Town for the others. Bring the carrier: the lanes are cobbled.</p></div>
+    </div>
+  </article>
+
+  <!-- SHANGHAI -->
+  <article class="city" id="shanghai">
+    <header><span class="cc brush">上海</span><div><h3>Shanghai</h3><div class="dates">Sun 10 to Wed 13 Jan, fly out that night</div></div><span class="seal"><big>3</big><small>nights</small></span></header>
+    <div class="maps"><a href="https://www.google.com/maps/search/?api=1&query=Shanghai+China" target="_blank" rel="noopener">Shanghai on the map</a><a href="https://www.google.com/maps/search/?api=1&query=The+Langham+Shanghai+Xintiandi" target="_blank" rel="noopener">Your hotel: Xintiandi</a><a href="https://www.google.com/maps/search/?api=1&query=Huanghe+Road+food+street+Shanghai" target="_blank" rel="noopener">Huanghe Road dumplings</a></div>
+    <p class="where">You're by Xintiandi's restored shikumen lanes, a short walk to the French Concession and Tianzifang. The Bund, Yu Garden and Huanghe Road's famous dumpling shops (Jia Jia Tang Bao, Yang's Fried Dumplings) are a short taxi or metro ride.</p>
+    <details><summary><span class="d">Sun 10 Jan</span><span class="t">Arrive, Bund lights</span></summary><div class="day">
+      <p>Land at Pudong T1 at 3:00pm. Allow about an hour to the city by car. Evening walk on the Bund waterfront as the Pudong towers light up.</p>
+    </div></details>
+    <details><summary><span class="d">Mon 11 Jan</span><span class="t">Yu Garden, the Old City, Shanghai Tower</span></summary><div class="day">
+      <p>Yu Garden at opening, then the lanes and breakfast stalls of the Old City around it, the most local part of central Shanghai.</p>
+      <p>Shanghai Tower observation deck at sunset for the view over the whole city.</p>
+    </div></details>
+    <details><summary><span class="d">Tue 12 Jan</span><span class="t">Water town, French Concession lanes</span></summary><div class="day">
+      <p>Morning at Zhujiajiao, a canal town with stone bridges and boats, about an hour west. Go early, before the day-trippers.</p>
+      <p>Afternoon in the plane-tree lanes of the French Concession around Wukang Road. Coffee, courtyards, no agenda.</p>
+    </div></details>
+    <details><summary><span class="d">Wed 13 Jan</span><span class="t">Disneyland, then home</span></summary><div class="day">
+      <p>Check out, bags in a private car for the day. Shanghai Disneyland on a January weekday means short queues, and it's about 25 minutes from Pudong airport. Head to the airport 3 hours before your flight.</p>
+      <p class="kid">Adya: the reward for 18 days of good travelling.</p>
+    </div></details>
+    <div class="stay"><h4>Where you're staying</h4>
+      <div class="h"><a href="https://www.google.com/maps/search/?api=1&query=The+Langham+Shanghai+Xintiandi" target="_blank" rel="noopener">The Langham Shanghai, Xintiandi</a><span class="tag done">Booked</span><p>10 to 13 January. Indoor pool in the Chuan Spa, with Xintiandi's lane-house restaurants on the doorstep. Free cancellation until 6pm on 9 January. On the last day, leave bags with the private car for Disney and the airport.</p></div>
+    </div>
+  </article>
+</section>
+
+<section id="shopping">
+  <h2>Warm clothes shopping list</h2>
+  <p class="lede">Coldest days are around minus 10°C in Beijing and Pingyao, plus a snowy day on Jade Dragon. A waterproof long down jacket does the job of a shell and a down jacket, and adults don't need overpants: merino thermals under normal trousers are enough. Your ticks are saved on this device.</p>
+  <div class="prog"><span id="scount">0</span> of <span id="stotal">0</span> bought</div>
+  <div class="bar"><i id="sfill"></i></div>
+  <div class="group">Erik</div>
+  <label class="act shop"><input type="checkbox" data-s="e-parka"><div><p>Patagonia Jackson Glacier Parka (men's) <span class="when" style="display:inline;margin-left:4px">A$799.95</span></p><small>Waterproof, windproof, 700-fill down, thigh length. Because it's waterproof, no separate shell needed. <a href="https://www.patagonia.com.au/products/mens-jackson-glacier-parka-27911-blk" target="_blank" rel="noopener">Patagonia Australia</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="e-top"><div><p>Icebreaker Merino 200 Oasis long sleeve top <span class="when" style="display:inline;margin-left:4px">A$149.99</span></p><small>Merino thermal. <a href="https://ap.icebreaker.com/en-au/collections/mens-baselayers" target="_blank" rel="noopener">Icebreaker men's base layers</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="e-legs"><div><p>Icebreaker Merino 200 Oasis thermal leggings <span class="when" style="display:inline;margin-left:4px">A$149.99</span></p><small>Wear under normal trousers. <a href="https://ap.icebreaker.com/en-au/products/men-merino-200-oasis-thermal-leggings-ib104369001" target="_blank" rel="noopener">Icebreaker</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="e-socks"><div><p>Merino hiking socks, 3 pairs</p><small>Darn Tough, lifetime guarantee. <a href="https://www.amazon.com.au/darn-tough-socks/s?k=darn+tough+socks" target="_blank" rel="noopener">Amazon Australia</a></small></div></label>
+  <div class="group">Arani</div>
+  <label class="act shop"><input type="checkbox" data-s="a-parka"><div><p>Patagonia Jackson Glacier Parka (women's) <span class="when" style="display:inline;margin-left:4px">about US$499</span></p><small>Same as Erik's: waterproof, windproof, 700-fill down, thigh length. Waterproof means no separate shell needed, so no Torrentshell. Your Arc'teryx stays home or comes as a mid layer for Shanghai. <a href="https://www.patagonia.com/product/womens-jackson-glacier-waterproof-down-parka/27917.html" target="_blank" rel="noopener">Patagonia</a> (switch to the Australian site, or check Australian stockists). Want it below the knee? The Uniqlo Seamless Down Long Coat is the value pick, and Arc'teryx's Thorium Extra-Long Parka is the premium one.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="a-top"><div><p>Icebreaker Merino 200 Oasis long sleeve top (women's) <span class="when" style="display:inline;margin-left:4px">A$149.99</span></p><small>Matching women's top on the Icebreaker site. <a href="https://ap.icebreaker.com/en-au/products/women-merino-200-oasis-thermal-leggings-ib104383001" target="_blank" rel="noopener">Icebreaker</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="a-legs"><div><p>Icebreaker Merino 200 Oasis thermal leggings (women's) <span class="when" style="display:inline;margin-left:4px">A$149.99</span></p><small><a href="https://ap.icebreaker.com/en-au/products/women-merino-200-oasis-thermal-leggings-ib104383001" target="_blank" rel="noopener">Icebreaker</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="a-socks"><div><p>Merino hiking socks, 3 pairs</p><small>Darn Tough. <a href="https://www.amazon.com.au/darn-tough-socks/s?k=darn+tough+socks" target="_blank" rel="noopener">Amazon Australia</a></small></div></label>
+  <div class="group">Adya (value, size up one)</div>
+  <label class="act shop"><input type="checkbox" data-s="k-jacket"><div><p>Warm waterproof padded jacket</p><small>Decathlon's Wedze kids' range, built for Australian snowfields. One size up gets you next winter too. <a href="https://www.decathlon.com.au/c/kids/clothes-by-sports/kid-s-ski-snow-clothing.html" target="_blank" rel="noopener">Decathlon kids' snow</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="k-pants"><div><p>Waterproof snow pants</p><small>For ice chairs, sledding and sitting in snow. Same Decathlon range. <a href="https://www.decathlon.com.au/c/kids/clothes-by-sports/kid-s-ski-snow-clothing.html" target="_blank" rel="noopener">Decathlon</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="k-boots"><div><p>Insulated snow boots</p><small>Don't skimp here: cold feet end days early. <a href="https://www.decathlon.com.au/c/kids/clothes-by-sports/kid-s-ski-snow-clothing.html" target="_blank" rel="noopener">Decathlon</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="k-thermal"><div><p>Thermal tops and bottoms, 2 sets</p><small>Wedze BL100 thermals are very cheap. <a href="https://www.decathlon.com.au/c/kids/clothes-by-sports/kid-s-ski-snow-clothing.html" target="_blank" rel="noopener">Decathlon</a></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="k-mitts"><div><p>Mittens on a string</p><small>Easier than gloves for small hands, and they don't get lost.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="k-socks"><div><p>Warm wool socks, 4 pairs</p><small></small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="k-heattech"><div><p>Optional: Uniqlo kids' Heattech layers</p><small>Cheap extra warm layers for everyday city wear. <a href="https://www.uniqlo.com/au/en/" target="_blank" rel="noopener">Uniqlo Australia</a></small></div></label>
+  <div class="group">Everyone</div>
+  <label class="act shop"><input type="checkbox" data-s="x-beanie"><div><p>Beanies, 3</p><small>Merino or fleece, long enough to cover ears.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="x-neck"><div><p>Neck warmers, 3</p><small>A merino or fleece tube; pull it up over your nose at minus 10°C.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="x-gloves"><div><p>Gloves, 2 pairs</p><small>Insulated, ideally touchscreen-friendly so you can use your phone for Alipay and Didi.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="x-heat"><div><p>Stick-on heat packs, a pack of around 20</p><small>For pockets and boots on Great Wall and Pingyao days.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="x-lip"><div><p>Lip balm and rich moisturiser</p><small>Northern China is extremely dry in winter.</small></div></label>
+  <label class="act shop"><input type="checkbox" data-s="x-boots"><div><p>Boots: Erik and Arani already have hiking boots</p><small>Adya's are above.</small></div></label>
+</section>
+
+<section id="know">
+  <h2>Good to know</h2>
+  <div class="grid">
+    <div class="box"><h3>Typical January temperatures</h3>
+      <div class="scroll"><table class="temps">
+        <tr><td>Beijing</td><td>−8 to 2°C</td></tr>
+        <tr><td>Pingyao</td><td>−10 to 3°C</td></tr>
+        <tr><td>Xi'an</td><td>−3 to 6°C</td></tr>
+        <tr><td>Chongqing</td><td>5 to 10°C</td></tr>
+        <tr><td>Lijiang</td><td>0 to 15°C</td></tr>
+        <tr><td>Shanghai</td><td>1 to 8°C</td></tr>
+      </table></div></div>
+    <div class="box"><h3>Winter kit for Adya</h3><ul><li>Beijing and Pingyao drop to minus 10°C: thermals, a proper puffer, hat and mittens on a string</li><li>Stick-on heat packs for pockets on Great Wall day</li><li>A carrier over a stroller: the Wall, the Forbidden City and the gorge are all steps</li><li>Lighter layers for Chongqing and Shanghai</li></ul></div>
+    <div class="box"><h3>Apps and money</h3><ul><li>Alipay and WeChat Pay run everything, taxis included</li><li>Didi works inside Alipay</li><li>Amap or Apple Maps, not Google Maps</li><li>Five-star hotels take cards; street food won't</li></ul></div>
+    <div class="box"><h3>Your agent's plan</h3><p>Odynovo's version is solid on activities and the best of them are kept here. Send them this route as the brief and ask them to requote with these hotels, trains and flights.</p></div>
+  </div>
+</section>
+
+<footer class="wrap">Built for Arani, Erik and Adya. Check opening dates and ticket windows again in December; China changes these at short notice.</footer>
+</main>
+
+<script>
+(function(){
+  var KEY='china-2627-actions', state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
+  var boxes=[].slice.call(document.querySelectorAll('.act:not(.shop) input'));
+  var total=document.getElementById('total'), count=document.getElementById('count'), fill=document.getElementById('fill');
+  total.textContent=boxes.length;
+  function render(){
+    var n=0;
+    boxes.forEach(function(b){var on=!!state[b.dataset.k];b.checked=on;b.closest('.act').classList.toggle('done',on);if(on)n++});
+    count.textContent=n; fill.style.width=(boxes.length?n/boxes.length*100:0)+'%';
+  }
+  boxes.forEach(function(b){b.addEventListener('change',function(){state[b.dataset.k]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}render()})});
+  render();
+})();
+</script>
+<script>
+(function(){
+  var KEY='china-2627-shopping', st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){st={}}
+  var bx=[].slice.call(document.querySelectorAll('.act.shop input'));
+  var t=document.getElementById('stotal'),c=document.getElementById('scount'),f=document.getElementById('sfill');
+  t.textContent=bx.length;
+  function r(){var n=0;bx.forEach(function(b){var on=!!st[b.dataset.s];b.checked=on;b.closest('.act').classList.toggle('done',on);if(on)n++});c.textContent=n;f.style.width=(bx.length?n/bx.length*100:0)+'%'}
+  bx.forEach(function(b){b.addEventListener('change',function(){st[b.dataset.s]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}r()})});
+  r();
+})();
+</script>
+</body>
+</html>
